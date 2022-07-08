@@ -1,2 +1,2 @@
 # SimpleLogging
-A very simple logging shell script for logging output to a file
+A very simple shell script logging utility
