@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Simple logging, a very simple logging tool to produce timestamped logs
+# Simple logging, a very simple logging tool to produce timestamped logs.
+# Designed for MacOs (BSD) - initially developed for Red Hat but has been converted.
 #------------------------------------------------------------------------------------------------
 #Usage - set the file and directory
 
@@ -59,9 +60,6 @@
 
 #Script starts here.
 
-TRUE=0
-FALSE=1
-
 HOSTNAME=$(uname -n)
 
 #roll over logs if this is a new day
@@ -77,7 +75,7 @@ rollOverLogs() {
 
 #check if this is a new day - if it is then roll over the logs.
 checkForNewDay() {
-  FILE_DAY=$(date '+%Y-%m-%d' -r ${ERROR_LOG} ); TODAY=$(date '+%Y-%m-%d')  - works on red hat
+  #FILE_DAY=$(date '+%Y-%m-%d' -r ${ERROR_LOG} ); TODAY=$(date '+%Y-%m-%d')  - works on red hat
 
   #[ ! -f $ERROR_LOG ] && { echo >> $ERROR_LOG; }     # if ERROR_LOG file does not exist then create it
   FILE_DAY=$(date -r ${ERROR_LOG} | cut -f3 -d" " )  # for MacOS, just use the day value
